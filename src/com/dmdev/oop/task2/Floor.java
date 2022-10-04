@@ -1,11 +1,14 @@
 package com.dmdev.oop.task2;
 
 public class Floor {
-     static int floorNumber;
-    static Flat[] flats = {};
+     int floorNumber;
+     Flat[] flats = {};
+    public Floor(int floorNumber) {
+        this.floorNumber = floorNumber;
+    }
 
 
-    public static void newFlat() {
+    public  void newFlat() {
         int newLength = flats.length + 1;
         Flat[] temp = new Flat[newLength];
         if (flats.length > 0) {
@@ -18,7 +21,7 @@ public class Floor {
         flats = temp;
     }
 
-    public static void printState() {
+    public  void printState() {
         System.out.println("Floor №: " + floorNumber + "\nNumber of flats: " + flats.length);
         for (Flat flat : flats) flat.printState();
     }

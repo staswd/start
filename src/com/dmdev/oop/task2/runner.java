@@ -1,8 +1,9 @@
 package com.dmdev.oop.task2;
 
-//import static com.dmdev.oop.task2.Floor.flats;
 
-import static com.dmdev.oop.task2.Floor.flats;
+
+//import static com.dmdev.oop.task2.Floor.flats;
+//import static com.dmdev.oop.task2.House.floors;
 
 //        system.arrays.copy
 //        додати функціонал додавання сущностей
@@ -19,17 +20,26 @@ import static com.dmdev.oop.task2.Floor.flats;
 //        Там же реализовать метод printAllInformation, который на вход принимает
 //        объект типа дом, и выводит информацию о нем, его этажах, квартирах и комнатах, вызывая методы print.
 public class runner {
+
     public static void main(String[] args) {
-        Floor.newFlat();
-        Floor.newFlat();
-        Floor.newFlat();
-        Floor.newFlat();
-        Floor.newFlat();
-        flats[2].newRoom();
-        flats[2].newRoom();
-        flats[2].newRoom();
-        flats[2].newRoom();
-        flats[2].rooms[2].walkThrough = true;
-        Floor.printState();
+        House house1= new House();
+        house1.newFloor();
+//        House.newFloor();
+//        House.newFloor();
+//        floors[0].newFlat();
+        house1.floors[0].newFlat();
+        house1.floors[0].newFlat();
+        house1.floors[0].newFlat();
+        house1.floors[0].flats[2].newRoom();
+        house1.floors[0].flats[2].newRoom();
+        house1.floors[0].flats[2].newRoom();
+        house1.floors[0].flats[2].newRoom();
+
+        house1.floors[0].flats[2].rooms[2].walkThrough = true;
+        house1.printState();
         }
 }
+
+
+//шоб в класах небуло методів, тільки поля( не було ніякої поведінки)
+
