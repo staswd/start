@@ -24,7 +24,6 @@ public class runner {
         Floor.newFlat();
         Floor.newFlat();
         Floor.newFlat();
-        Floor.newFlat();
         flats[2].newRoom();
         flats[2].newRoom();
         flats[2].newRoom();
