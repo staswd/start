@@ -1,7 +1,6 @@
 package com.dmdev.oop.task2;
 
 
-
 //import static com.dmdev.oop.task2.Floor.flats;
 //import static com.dmdev.oop.task2.House.floors;
 
@@ -20,24 +19,88 @@ package com.dmdev.oop.task2;
 //        Там же реализовать метод printAllInformation, который на вход принимает
 //        объект типа дом, и выводит информацию о нем, его этажах, квартирах и комнатах, вызывая методы print.
 public class runner {
-
     public static void main(String[] args) {
-        House house1= new House();
-        house1.newFloor();
-//        House.newFloor();
-//        House.newFloor();
-//        floors[0].newFlat();
-        house1.floors[0].newFlat();
-        house1.floors[0].newFlat();
-        house1.floors[0].newFlat();
-        house1.floors[0].flats[2].newRoom();
-        house1.floors[0].flats[2].newRoom();
-        house1.floors[0].flats[2].newRoom();
-        house1.floors[0].flats[2].newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newFlat();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
 
-        house1.floors[0].flats[2].rooms[2].walkThrough = true;
-        house1.printState();
+        System.out.println(tempRooms.length);
+        newFlat();
+        System.out.println(tempRooms.length);
+
+        System.out.println(tempFlats[0].rooms.length);
+        System.out.println(tempFlats[1].rooms.length);
+        System.out.println(tempFlats.length);
+        newFloor();
+        System.out.println(tempFloors.length);
+
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newRoom();
+        newFlat();
+        newFloor();
+        System.out.println(tempFloors.length);
+        System.out.println(tempFloors[0].flats.length);
+
+    }
+
+    static Room[] tempRooms = new Room[0];
+    static Flat[] tempFlats = new Flat[0];
+    static Floor[] tempFloors = new Floor[0];
+
+
+    public static void newRoom() {
+        int newLength = tempRooms.length + 1;
+        Room[] temp = new Room[newLength];
+        if (tempRooms.length > 0) {
+            for (int i = 0; i < tempRooms.length; i++) {
+                temp[i] = tempRooms[i];
+            }
         }
+        temp[newLength - 1] = new Room(newLength, false);
+        tempRooms = temp;
+    }
+
+    public static void newFlat() {
+        int newLength = tempFlats.length + 1;
+        Flat[] temp = new Flat[newLength];
+        if (tempFlats.length > 0) {
+            for (int i = 0; i < tempFlats.length; i++) {
+                temp[i] = tempFlats[i];
+            }
+        }
+        temp[newLength - 1] = new Flat(newLength);
+        tempFlats = temp;
+        tempFlats[tempFlats.length - 1].rooms = tempRooms;
+        tempRooms = new Room[0];
+    }
+
+    public static void newFloor() {
+        int newLength = tempFloors.length + 1;
+        Floor[] temp = new Floor[newLength];
+        if (tempFloors.length > 0) {
+            for (int i = 0; i < tempFloors.length; i++) {
+                temp[i] = tempFloors[i];
+            }
+        }
+        ;
+        temp[newLength - 1] = new Floor(newLength);
+        tempFloors = temp;
+        tempFloors[tempFloors.length - 1].flats = tempFlats;
+        tempFlats = new Flat[0];
+    }
 }
 
 
